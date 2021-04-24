@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var passengers = [{ name: "Jane Doloop", paid: true, ticket: "coach" },
+		{ name: "Dr. Evel", paid: true, ticket: "firstclass" },
+		{ name: "Sue Property", paid: false, ticket: "firstclass" },
+		{ name: "John Funcall", paid: true, ticket: "coach" },
+		{ name: "Max Alenkau", paid: true, ticket: "firstcoach" }];
+
+
+		function servePassengers(passengers) {
+			for (var i = 0; i < passengers.length; i++) {
+				serveCustomer(passengers[i]);
+			}
+		}
+		servePassengers(passengers);
+
+		function createDrinkOrder(passenger) {
+			var orderFunction;
+			if (passenger.ticket === "firstclass") {
+				orderFunction = function () {
+					alert("Would you like a cocktail or wine?");
+				};
+			}
+			else if (passenger.ticket === "firstcoach") {
+				orderFunction = function () {
+					alert("Would upi like a cola or water or wine?");
+				};
+			} else {
+				orderFunction = function () {
+					alert("Your choice is cola or water.");
+				};
+			}
+			return orderFunction;
+		}
+		function createDinnerOrder(passenger) {
+			var orderFunction;
+			if (passenger.ticket === "firstclass") {
+				orderFunction = function () {
+					alert("chiken or pasta?");
+				};
+			} else if (passenger.ticket === "firstcoach") {
+				orderFunction = function () {
+					alert("naggets or cheese?");
+				}
+			} else {
+				orderFunction = function () {
+					alert("kirieshki or bread?");
+				};
+			}
+			return orderFunction;
+		}
+		function serveCustomer(passenger) {
+			var getDrinkOrderFunction = createDrinkOrder(passenger);
+			var getDinnerOrderFunction = createDinnerOrder(passenger);
+			getDinnerOrderFunction();
+			getDinnerOrderFunction();
+			getDrinkOrderFunction();
+			getDrinkOrderFunction();
+			getDinnerOrderFunction();
+			// Предложить обед
+			getDrinkOrderFunction();
+			getDinnerOrderFunction();
+			getDrinkOrderFunction();
+			// Включить кино
+			getDrinkOrderFunction();
+			getDinnerOrderFunction();
+
+			// Забрать мусор
+		}
+
+
+	</script>
+</body>
+
+</html>
